@@ -1,0 +1,17 @@
+body {
+  background-color: grey;
+}
+
+.map-box{
+
+}
+
+.leaflet-container{
+  height: 750px;
+  width: 750px;
+  border: 1px solid black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
