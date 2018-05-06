@@ -1,13 +1,22 @@
 {{map-display title="Map View" map=model}}
 <div class="display-box">
   <div class="text-entry">
-    {{input type="email" value=latitude class="form-control" placeholder="Please Enter Latitude." autofocus="autofocus"}}
+    {{input type="text" value=locGive class="form-control" placeholder="Please Enter Location Name." autofocus="autofocus"}}
     <br>
-    {{input type="email" value=longitude class="form-control" placeholder="Please Enter Longitude."}}
+    {{input type="text" value=latitude class="form-control" placeholder="Please Enter Latitude."}}
+    <br>
+    {{input type="text" value=longitude class="form-control" placeholder="Please Enter Longitude."}}
     <br>
     <button class="btn btn-primary btn-lg btn-block" {{action 'updateMap'}}>Update Map</button>
   </div>
   {{#leaflet-map lat=lat lng=lng zoom=zoom}}
-    {{tile-layer url="http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"}}
+    {{tile-layer url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
+    {{#if updateCheck}}
+      {{#marker-layer location=locCoordinates}}
+        {{#popup-layer}}
+          <h3>{{locName}}</h3>
+        {{/popup-layer}}
+      {{/marker-layer}}
+    {{/if}}
   {{/leaflet-map}}
 </div>
