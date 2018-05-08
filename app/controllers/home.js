@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
-
+const google = window.google;
+var geocoder = new google.maps.Geocoder();
 export default Controller.extend({
   updateCheck: '',
   locCoordinates: '',
@@ -23,6 +24,7 @@ export default Controller.extend({
       this.set('locCoordinates', [this.get('lat'), this.get('lng')]);
       this.set('zoom', 20);
       this.set
+
     }
   }
 });
